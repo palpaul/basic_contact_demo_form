@@ -1,0 +1,22 @@
+.example-form {
+    min-width: 10px;
+    max-width: 300px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  .btn-primary{
+    text-align: center;
+  }
+  .bdr{
+    background-color: cadetblue;
+  }
+
+  .bdr{
+    text-align: center;
+  }

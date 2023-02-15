@@ -1,0 +1,64 @@
+<p>
+  <mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>My App</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>share</mat-icon>
+    </button>
+  </mat-toolbar>
+</p>
+
+<form [formGroup]="form" (ngSubmit)="submit()" class="form-control w-50 mx-auto">
+    <div><h3 class="bdr">Add-Contact</h3><hr></div>
+  <div class="form-group-con">
+      <label for="contactName">Contact Name</label>
+      <input 
+          formControlName="contactName"
+          id="contactName" 
+          type="text" 
+          class="form-control">
+      <div *ngIf="f['contactName'].touched && f['contactName'].invalid" class="alert alert-danger">
+          <div *ngIf="f['contactName'].errors && f['contactName'].errors['required']">Contact Name is required.</div>
+          <div *ngIf="f['contactName'].errors && f['contactName'].errors['minlength']">Contact Name should be minimum 3 characters.</div>
+      </div>
+  </div>
+   
+  <div class="form-group">
+      <label for="contactEmail">Email</label>
+      <input 
+          formControlName="contactEmail"
+          id="contactEmail" 
+          type="email" 
+          class="form-control">
+      <div *ngIf="f['contactEmail'].touched && f['contactEmail'].invalid" class="alert alert-danger">
+          <div *ngIf="f['contactEmail'].errors && f['contactEmail'].errors['required']">Contact Email is required.</div>
+          <div *ngIf="f['contactEmail'].errors && f['contactEmail'].errors['email']">Please, enter valid email address.</div>
+      </div>
+  </div>
+  <div class="form-group">
+      <label for="contactNum">Contact Number</label>
+      <input
+          formControlName="contactNum"
+          id="body" 
+          type="tel" 
+          class="form-control">
+      
+      <div *ngIf="f['contactNum'].touched && f['contactNum'].invalid" class="alert alert-danger">
+          <div *ngIf="f['contactNum'].errors && f['contactNum'].errors['required']">Contact Number is required.</div>
+      </div>
+  </div>
+  <br/>
+  <div class="btn">
+    <button  class="btn btn-primary" [disabled]="form.invalid" type="submit">Save</button>
+  </div>
+  
+</form>
+
+
+
